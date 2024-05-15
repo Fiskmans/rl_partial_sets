@@ -27,7 +27,7 @@ public interface PartialSetsConfig extends Config
 	@ConfigItem(
 		keyName = "appearance_text_color",
 		name = "Text Color",
-		description = "What color use for text",
+		description = "What color to use for text",
 		section = appearance
 	)
 	default Color TextColor() { return Color.RED; }
@@ -35,105 +35,105 @@ public interface PartialSetsConfig extends Config
 
 	@ConfigItem(
 		keyName = "set_void_knight",
-		name = "Void Knight",
+		name = "Combat: Void Knight",
 		description = "Track 'Void Knight'",
 		section = trackSection
 	)
 	default boolean VoidKnight() { return true; }
 	@ConfigItem(
 		keyName = "set_obsidian",
-		name = "Obsidian",
+		name = "Combat: Obsidian",
 		description = "Track 'Obsidian'",
 		section = trackSection
 	)
 	default boolean Obsidian() { return true; }
 	@ConfigItem(
 		keyName = "set_farming",
-		name = "Farming",
+		name = "Skilling: Farming",
 		description = "Track 'Farming'",
 		section = trackSection
 	)
 	default boolean Farming() { return true; }
 	@ConfigItem(
 		keyName = "set_rogue",
-		name = "Rogue",
+		name = "Skilling: Rogue",
 		description = "Track 'Rogue'",
 		section = trackSection
 	)
 	default boolean Rogue() { return true; }
 	@ConfigItem(
 		keyName = "set_hunter",
-		name = "Hunter",
+		name = "Skilling: Hunter",
 		description = "Track 'Hunter'",
 		section = trackSection
 	)
 	default boolean Hunter() { return true; }
 	@ConfigItem(
 		keyName = "set_lumberjack",
-		name = "Lumberjack",
+		name = "Skilling: Lumberjack",
 		description = "Track 'Lumberjack'",
 		section = trackSection
 	)
 	default boolean Lumberjack() { return true; }
 	@ConfigItem(
 		keyName = "set_carpenter",
-		name = "Carpenter",
+		name = "Skilling: Carpenter",
 		description = "Track 'Carpenter'",
 		section = trackSection
 	)
 	default boolean Carpenter() { return true; }
 	@ConfigItem(
 		keyName = "set_bloodmoon",
-		name = "BloodMoon",
+		name = "Moons: BloodMoon",
 		description = "Track 'BloodMoon'",
 		section = trackSection
 	)
 	default boolean BloodMoon() { return true; }
 	@ConfigItem(
 		keyName = "set_bluemoon",
-		name = "BlueMoon",
+		name = "Moons: BlueMoon",
 		description = "Track 'BlueMoon'",
 		section = trackSection
 	)
 	default boolean BlueMoon() { return true; }
 	@ConfigItem(
 		keyName = "set_eclipsemoon",
-		name = "EclipseMoon",
+		name = "Moons: EclipseMoon",
 		description = "Track 'EclipseMoon'",
 		section = trackSection
 	)
 	default boolean EclipseMoon() { return true; }
 	@ConfigItem(
 		keyName = "set_virtus",
-		name = "Virtus",
+		name = "Combat: Virtus",
 		description = "Track 'Virtus'",
 		section = trackSection
 	)
 	default boolean Virtus() { return true; }
 	@ConfigItem(
 		keyName = "set_swampbark",
-		name = "Swampbark",
+		name = "Combat: Swampbark",
 		description = "Track 'Swampbark'",
 		section = trackSection
 	)
 	default boolean Swampbark() { return true; }
 	@ConfigItem(
 		keyName = "set_bloodbark",
-		name = "Bloodbark",
+		name = "Combat: Bloodbark",
 		description = "Track 'Bloodbark'",
 		section = trackSection
 	)
 	default boolean Bloodbark() { return true; }
 	@ConfigItem(
 		keyName = "set_inquisitor",
-		name = "Inquisitor",
+		name = "Combat: Inquisitor",
 		description = "Track 'Inquisitor'",
 		section = trackSection
 	)
 	default boolean Inquisitor() { return true; }
 	@ConfigItem(
 		keyName = "set_ahrims",
-		name = "Ahrims",
+		name = "Barrows: Ahrims",
 		description = "Track 'Ahrims'",
 		section = trackSection
 	)
@@ -147,35 +147,35 @@ public interface PartialSetsConfig extends Config
 	default boolean Dharoks() { return true; }
 	@ConfigItem(
 		keyName = "set_guthans",
-		name = "Guthans",
+		name = "Barrows: Guthans",
 		description = "Track 'Guthans'",
 		section = trackSection
 	)
 	default boolean Guthans() { return true; }
 	@ConfigItem(
 		keyName = "set_karils",
-		name = "Karils",
+		name = "Barrows: Karils",
 		description = "Track 'Karils'",
 		section = trackSection
 	)
 	default boolean Karils() { return true; }
 	@ConfigItem(
 		keyName = "set_torags",
-		name = "Torags",
+		name = "Barrows: Torags",
 		description = "Track 'Torags'",
 		section = trackSection
 	)
 	default boolean Torags() { return true; }
 	@ConfigItem(
 		keyName = "set_veracs",
-		name = "Veracs",
+		name = "Barrows: Veracs",
 		description = "Track 'Veracs'",
 		section = trackSection
 	)
 	default boolean Veracs() { return true; }
 	@ConfigItem(
 		keyName = "set_graceful",
-		name = "Graceful",
+		name = "Misc: Graceful",
 		description = "Track 'Graceful'",
 		section = trackSection
 	)
