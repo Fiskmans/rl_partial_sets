@@ -173,4 +173,11 @@ public interface PartialSetsConfig extends Config
 		section = trackSection
 	)
 	default boolean Veracs() { return true; }
+	@ConfigItem(
+		keyName = "set_graceful",
+		name = "Graceful",
+		description = "Track 'Graceful'",
+		section = trackSection
+	)
+	default boolean Graceful() { return true; }
 }
