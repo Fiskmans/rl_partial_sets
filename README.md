@@ -1,5 +1,5 @@
 # Partial Sets
-__Do you always forget to bring your void knights gloves, end up doing partial switches or otherwise just end up with funky partial gear sets?__
+__Do you always forget to bring your void knights gloves, end up doing partial switches or otherwise just end up with funky partial gear sets?__  
 Then this plugin is for you
 
 ### How does it work?
