@@ -52,6 +52,7 @@ public class PartialSetsPlugin extends Plugin
 	{
 		log.info("PartialSets stopped!");
 		mySets = null;
+		Reset();
 	}
 
 	@Subscribe
@@ -75,8 +76,8 @@ public class PartialSetsPlugin extends Plugin
 
 	private void Check(ItemContainer aEquipment)
 	{
-		infoBoxes.removeIf(infoBox -> infoBox.getClass() == EquipmentSetInfoBox.class);
-
+		Reset();
+		
 		for (EquipmentSet set : mySets) {
 			switch (set.Check(aEquipment))
 			{
@@ -421,5 +422,10 @@ public class PartialSetsPlugin extends Plugin
 					)
 			));
 		}
+	}
+
+	void Reset()
+	{
+		infoBoxes.removeIf(infoBox -> infoBox.getClass() == EquipmentSetInfoBox.class);
 	}
 }
