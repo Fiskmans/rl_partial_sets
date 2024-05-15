@@ -3,7 +3,7 @@ __Do you always forget to bring your void knights gloves, end up doing partial s
 Then this plugin is for you
 
 ### How does it work?
-By displaying a infobox with the brightest of red text you could get; Even the blindest of subterranian molerats will not forget to equip all their gear.  
+By displaying a infobox with the brightest red text we could get our hands on; Even the blindest of subterranian molerats will not forget to equip all their gear.  
 ![Example image](IconRaw.png)
 
 ### But what if I dont want to grind for a full set of graceful?
