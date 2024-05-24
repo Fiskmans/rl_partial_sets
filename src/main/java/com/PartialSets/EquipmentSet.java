@@ -2,19 +2,20 @@ package com.PartialSets;
 
 import net.runelite.api.ItemContainer;
 
+import java.util.Arrays;
 import java.util.List;
 
 public class EquipmentSet {
 
-    public List<List<Integer>> myItems;
+    public ItemSlot[] mySlots;
     public int myIconId;
     public String myName;
 
     public int myLastCount;
 
-    EquipmentSet(String aName, int aIconId, List<List<Integer>> aItems)
+    EquipmentSet(String aName, int aIconId, ItemSlot... slots)
     {
-        myItems = aItems;
+        mySlots = slots;
         myIconId = aIconId;
         myName = aName;
     }
@@ -29,22 +30,28 @@ public class EquipmentSet {
     CheckResult Check(ItemContainer aEquipment)
     {
         int count = 0;
+        boolean shouldShow = false;
 
-        for (List<Integer> slot : myItems) {
-            for (Integer item : slot) {
-                if (aEquipment.contains(item))
-                {
+        for (ItemSlot slot : mySlots) {
+            switch (slot.IsEquipped(aEquipment))
+            {
+                case NotPresent:
+                    break;
+                case EquippedNoWarning:
                     count++;
                     break;
-                }
+                case Equipped:
+                    count++;
+                    shouldShow = true;
+                    break;
             }
         }
 
         myLastCount = count;
 
-        if (count > 0)
+        if (shouldShow)
         {
-            if (count == myItems.size())
+            if (count == mySlots.length)
                 return  CheckResult.FULL;
 
             return CheckResult.PARTIAL;

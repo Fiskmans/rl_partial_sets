@@ -24,7 +24,7 @@ public class EquipmentSetInfoBox extends InfoBox {
 
     @Override
     public String getText() {
-        return mySet.myLastCount + "/" + mySet.myItems.size();
+        return mySet.myLastCount + "/" + mySet.mySlots.length;
     }
 
     @Override
