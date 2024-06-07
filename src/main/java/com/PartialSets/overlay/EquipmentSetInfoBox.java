@@ -1,10 +1,12 @@
 package com.PartialSets.overlay;
 
 import com.PartialSets.EquipmentSet;
+import com.PartialSets.ItemSlot;
 import com.PartialSets.PartialSetsConfig;
 import com.PartialSets.PartialSetsPlugin;
 import net.runelite.client.game.ItemManager;
 import net.runelite.client.ui.overlay.infobox.InfoBox;
+import net.runelite.client.util.ColorUtil;
 
 import java.awt.*;
 
@@ -19,7 +21,13 @@ public class EquipmentSetInfoBox extends InfoBox {
         mySet = aSet;
         myConfig = aConfig;
 
-        setTooltip("You are wearing a partial " + mySet.myName);
+        String tooltip = "Partial " + ColorUtil.wrapWithColorTag(mySet.myName, myConfig.SetTextColor()) + " equipped";
+
+        for (ItemSlot slot : mySet.mySlots) {
+            tooltip += "</br>" + slot.toColoredString(aItemManager);
+        }
+
+        setTooltip(tooltip);
     }
 
     @Override

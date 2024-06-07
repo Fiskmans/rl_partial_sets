@@ -52,6 +52,27 @@ public interface PartialSetsConfig extends Config
 			section = appearance
 	)
 	default Color TextColor() { return Color.RED; }
+	@ConfigItem(
+			keyName = "appearance_text_color_equipped",
+			name = "Equipped text Color",
+			description = "What color to use for equipped items",
+			section = appearance
+	)
+	default Color EquippedTextColor() { return Color.GREEN; }
+	@ConfigItem(
+			keyName = "appearance_text_color_unequipped",
+			name = "Unequipped text Color",
+			description = "What color to use for unequipped items",
+			section = appearance
+	)
+	default Color UnequippedTextColor() { return Color.RED; }
+	@ConfigItem(
+			keyName = "appearance_text_color_set",
+			name = "Set text Color",
+			description = "What color to use for equipment set names",
+			section = appearance
+	)
+	default Color SetTextColor() { return Color.ORANGE; }
 
 	// Misc
 	@ConfigItem(
