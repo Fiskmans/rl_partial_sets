@@ -314,6 +314,19 @@ public class PartialSetsPlugin extends Plugin
 							ItemID.GRACEFUL_CAPE_27447, ItemID.GRACEFUL_CAPE_27449)
 			));
 		}
+		if (myConfig.Crystal()) {
+			mySets.add(new EquipmentSet("Set of Crystal armour", ItemID.CRYSTAL_HELM,
+					new ItemSlot(
+							ItemID.CRYSTAL_HELM, 		ItemID.CRYSTAL_HELM_27705, ItemID.CRYSTAL_HELM_27717, ItemID.CRYSTAL_HELM_27729,
+							ItemID.CRYSTAL_HELM_27741, 	ItemID.CRYSTAL_HELM_27753, ItemID.CRYSTAL_HELM_27765, ItemID.CRYSTAL_HELM_27777),
+					new ItemSlot(
+							ItemID.CRYSTAL_BODY, 		ItemID.CRYSTAL_BODY_27697, ItemID.CRYSTAL_BODY_27709, ItemID.CRYSTAL_BODY_27721,
+							ItemID.CRYSTAL_BODY_27733, 	ItemID.CRYSTAL_BODY_27745, ItemID.CRYSTAL_BODY_27757, ItemID.CRYSTAL_BODY_27769),
+					new ItemSlot(
+							ItemID.CRYSTAL_LEGS, 		ItemID.CRYSTAL_LEGS_27701, ItemID.CRYSTAL_LEGS_27713, ItemID.CRYSTAL_LEGS_27725,
+							ItemID.CRYSTAL_LEGS_27737, 	ItemID.CRYSTAL_LEGS_27749, ItemID.CRYSTAL_LEGS_27761, ItemID.CRYSTAL_LEGS_27773)
+			));
+		}
 		if (myConfig.Shayzien()) {
 			mySets.add(new EquipmentSet("Set of Shayzien tier 1", ItemID.SHAYZIEN_HELM_1,
 					new ItemSlot(ItemID.SHAYZIEN_HELM_1),
@@ -372,6 +385,42 @@ public class PartialSetsPlugin extends Plugin
 					new ItemSlot(ItemID.JUSTICIAR_FACEGUARD),
 					new ItemSlot(ItemID.JUSTICIAR_CHESTGUARD),
 					new ItemSlot(ItemID.JUSTICIAR_LEGGUARDS)
+			));
+		}
+
+		if (myConfig.Gauntlet())
+		{
+			mySets.add(new EquipmentSet("Set of Gauntlet T1 armour", ItemID.CRYSTAL_BODY_BASIC,
+					new ItemSlot(ItemID.CRYSTAL_HELM_BASIC),
+					new ItemSlot(ItemID.CRYSTAL_BODY_BASIC),
+					new ItemSlot(ItemID.CRYSTAL_LEGS_BASIC)
+			));
+			mySets.add(new EquipmentSet("Set of Corrupted Gauntlet T1 armour", ItemID.CORRUPTED_BODY_BASIC,
+					new ItemSlot(ItemID.CORRUPTED_HELM_BASIC),
+					new ItemSlot(ItemID.CORRUPTED_BODY_BASIC),
+					new ItemSlot(ItemID.CORRUPTED_LEGS_BASIC)
+			));
+
+			mySets.add(new EquipmentSet("Set of Gauntlet T2 armour", ItemID.CRYSTAL_BODY_ATTUNED,
+					new ItemSlot(ItemID.CRYSTAL_HELM_ATTUNED),
+					new ItemSlot(ItemID.CRYSTAL_BODY_ATTUNED),
+					new ItemSlot(ItemID.CRYSTAL_LEGS_ATTUNED)
+			));
+			mySets.add(new EquipmentSet("Set of Corrupted Gauntlet T2 armour", ItemID.CORRUPTED_BODY_ATTUNED,
+					new ItemSlot(ItemID.CORRUPTED_HELM_ATTUNED),
+					new ItemSlot(ItemID.CORRUPTED_BODY_ATTUNED),
+					new ItemSlot(ItemID.CORRUPTED_LEGS_ATTUNED)
+			));
+
+			mySets.add(new EquipmentSet("Set of Gauntlet T3 armour", ItemID.CRYSTAL_BODY_PERFECTED,
+					new ItemSlot(ItemID.CRYSTAL_HELM_PERFECTED),
+					new ItemSlot(ItemID.CRYSTAL_BODY_PERFECTED),
+					new ItemSlot(ItemID.CRYSTAL_LEGS_PERFECTED)
+			));
+			mySets.add(new EquipmentSet("Set of Corrupted Gauntlet T3 armour", ItemID.CORRUPTED_BODY_PERFECTED,
+					new ItemSlot(ItemID.CORRUPTED_HELM_PERFECTED),
+					new ItemSlot(ItemID.CORRUPTED_BODY_PERFECTED),
+					new ItemSlot(ItemID.CORRUPTED_LEGS_PERFECTED)
 			));
 		}
 	}
