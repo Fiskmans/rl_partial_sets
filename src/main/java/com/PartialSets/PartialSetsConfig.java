@@ -112,6 +112,13 @@ public interface PartialSetsConfig extends Config
 			section = trackSection,
 			position = 9
 	)
+	default boolean Crystal() { return true; }
+	@ConfigItem(
+			keyName = "set_shayzien",
+			name = "Shayzien",
+			description = "Track 'Shayzien'",
+			section = trackSection
+	)
 	default boolean Shayzien() { return true; }
 	@ConfigItem(
 			keyName = "set_justicar",
