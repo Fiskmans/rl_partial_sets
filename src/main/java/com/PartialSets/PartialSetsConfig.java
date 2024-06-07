@@ -124,6 +124,13 @@ public interface PartialSetsConfig extends Config
 			section = misc
 	)
 	default boolean Graceful() { return true; }
+	@ConfigItem(
+			keyName = "set_gauntlet",
+			name = "Gauntlet",
+			description = "Track 'Gauntlet'",
+			section = misc
+	)
+	default boolean Gauntlet() { return true; }
 
 	// Skilling
 	@ConfigItem(
