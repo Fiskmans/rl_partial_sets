@@ -195,6 +195,16 @@ public class PartialSetsPlugin extends Plugin
 					new AssociatedSlot(myConfig, ItemID.AMYS_SAW_OFFHAND, ItemID.IMCANDO_HAMMER_OFFHAND)
 			));
 		}
+		if (myConfig.Runecrafting())
+		{
+			mySets.add(new EquipmentSet("Raiments of the eye", ItemID.HAT_OF_THE_EYE,
+					new ItemSlot(myConfig, ItemID.HAT_OF_THE_EYE, ItemID.HAT_OF_THE_EYE_BLUE, ItemID.HAT_OF_THE_EYE_RED, ItemID.HAT_OF_THE_EYE_GREEN),
+					new ItemSlot(myConfig, ItemID.ROBE_TOP_OF_THE_EYE, ItemID.ROBE_TOP_OF_THE_EYE_BLUE, ItemID.ROBE_TOP_OF_THE_EYE_RED, ItemID.ROBE_TOP_OF_THE_EYE_GREEN),
+					new ItemSlot(myConfig, ItemID.ROBE_BOTTOMS_OF_THE_EYE, ItemID.ROBE_BOTTOMS_OF_THE_EYE_BLUE, ItemID.ROBE_BOTTOMS_OF_THE_EYE_RED, ItemID.ROBE_BOTTOMS_OF_THE_EYE_GREEN),
+					new ItemSlot(myConfig, ItemID.BOOTS_OF_THE_EYE)
+			));
+		}
+
 		if (myConfig.BloodMoon()) {
 			mySets.add(new EquipmentSet("Blood Moon Armour", ItemID.BLOOD_MOON_CHESTPLATE,
 					new ItemSlot(myConfig, ItemID.BLOOD_MOON_CHESTPLATE, ItemID.BLOOD_MOON_CHESTPLATE_29043),

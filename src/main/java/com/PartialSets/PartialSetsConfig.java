@@ -196,6 +196,13 @@ public interface PartialSetsConfig extends Config
 			section = skilling
 	)
 	default boolean Carpenter() { return true; }
+	@ConfigItem(
+			keyName = "set_runecrafting",
+			name = "Raiments of the eye",
+			description = "Track 'Raiments of the eye'",
+			section = skilling
+	)
+	default boolean Runecrafting() { return true; }
 
 	// Moons
 	@ConfigItem(
