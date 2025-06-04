@@ -46,6 +46,13 @@ public interface PartialSetsConfig extends Config
 	String barrows = "barrows";
 
 	@ConfigItem(
+			keyName = "associated_items",
+			name = "Associated items",
+			description = "Include associated items in sets"
+	)
+	default boolean Associated() { return false; }
+
+	@ConfigItem(
 			keyName = "appearance_text_color",
 			name = "Text Color",
 			description = "What color to use for text",

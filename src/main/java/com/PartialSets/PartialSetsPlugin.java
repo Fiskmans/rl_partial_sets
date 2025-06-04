@@ -125,8 +125,9 @@ public class PartialSetsPlugin extends Plugin
 								ItemID.ELITE_VOID_ROBE, ItemID.ELITE_VOID_ROBE_L, ItemID.ELITE_VOID_ROBE_LOR, ItemID.ELITE_VOID_ROBE_OR,
 								ItemID.VOID_KNIGHT_ROBE, ItemID.VOID_KNIGHT_ROBE_L, ItemID.VOID_KNIGHT_ROBE_LOR, ItemID.VOID_KNIGHT_ROBE_OR),
 					new ItemSlot(myConfig,
-								ItemID.VOID_KNIGHT_GLOVES, ItemID.VOID_KNIGHT_GLOVES_L, ItemID.VOID_KNIGHT_GLOVES_LOR, ItemID.VOID_KNIGHT_GLOVES_OR)
-
+								ItemID.VOID_KNIGHT_GLOVES, ItemID.VOID_KNIGHT_GLOVES_L, ItemID.VOID_KNIGHT_GLOVES_LOR, ItemID.VOID_KNIGHT_GLOVES_OR),
+					new AssociatedSlot(myConfig,
+								ItemID.VOID_KNIGHT_MACE, ItemID.VOID_KNIGHT_MACE_L)
 			));
 		}
 
@@ -134,7 +135,17 @@ public class PartialSetsPlugin extends Plugin
 			mySets.add(new EquipmentSet("Obsidian", ItemID.OBSIDIAN_HELMET,
 					new ItemSlot(myConfig, ItemID.OBSIDIAN_HELMET),
 					new ItemSlot(myConfig, ItemID.OBSIDIAN_PLATEBODY),
-					new ItemSlot(myConfig, ItemID.OBSIDIAN_PLATELEGS)
+					new ItemSlot(myConfig, ItemID.OBSIDIAN_PLATELEGS),
+					new AssociatedSlot(myConfig, ItemID.BERSERKER_NECKLACE, ItemID.BERSERKER_NECKLACE_OR),
+					new AssociatedSlot(myConfig,
+							ItemID.TOKTZKETXIL,
+							ItemID.TOKTZXILAK,
+							ItemID.TOKTZXILAK_20554,
+							ItemID.TZHAARKETEM,
+							ItemID.TZHAARKETOM,
+							ItemID.TZHAARKETOM_T,
+							ItemID.TOKTZKETXIL,
+							ItemID.TOKTZMEJTAL)
 			));
 		}
 
@@ -143,7 +154,8 @@ public class PartialSetsPlugin extends Plugin
 					new ItemSlot(myConfig, ItemID.FARMERS_STRAWHAT, ItemID.FARMERS_STRAWHAT_13647),
 					new ItemSlot(myConfig, ItemID.FARMERS_JACKET, ItemID.FARMERS_SHIRT),
 					new ItemSlot(myConfig, ItemID.FARMERS_BORO_TROUSERS, ItemID.FARMERS_BORO_TROUSERS_13641),
-					new ItemSlot(myConfig, ItemID.FARMERS_BOOTS, ItemID.FARMERS_BOOTS_13645)
+					new ItemSlot(myConfig, ItemID.FARMERS_BOOTS, ItemID.FARMERS_BOOTS_13645),
+					new AssociatedSlot(myConfig, ItemID.MAGIC_SECATEURS)
 			));
 		}
 
@@ -178,28 +190,33 @@ public class PartialSetsPlugin extends Plugin
 					new ItemSlot(myConfig, ItemID.CARPENTERS_HELMET),
 					new ItemSlot(myConfig, ItemID.CARPENTERS_SHIRT),
 					new ItemSlot(myConfig, ItemID.CARPENTERS_TROUSERS),
-					new ItemSlot(myConfig, ItemID.CARPENTERS_BOOTS)
+					new ItemSlot(myConfig, ItemID.CARPENTERS_BOOTS),
+					new AssociatedSlot(myConfig, ItemID.AMYS_SAW, ItemID.IMCANDO_HAMMER),
+					new AssociatedSlot(myConfig, ItemID.AMYS_SAW_OFFHAND, ItemID.IMCANDO_HAMMER_OFFHAND)
 			));
 		}
 		if (myConfig.BloodMoon()) {
 			mySets.add(new EquipmentSet("Blood Moon Armour", ItemID.BLOOD_MOON_CHESTPLATE,
 					new ItemSlot(myConfig, ItemID.BLOOD_MOON_CHESTPLATE, ItemID.BLOOD_MOON_CHESTPLATE_29043),
 					new ItemSlot(myConfig, ItemID.BLOOD_MOON_HELM, ItemID.BLOOD_MOON_HELM_29047),
-					new ItemSlot(myConfig, ItemID.BLOOD_MOON_TASSETS, ItemID.BLOOD_MOON_TASSETS_29045)
+					new ItemSlot(myConfig, ItemID.BLOOD_MOON_TASSETS, ItemID.BLOOD_MOON_TASSETS_29045),
+					new AssociatedSlot(myConfig, ItemID.DUAL_MACUAHUITL, ItemID.DUAL_MACUAHUITL_29850)
 			));
 		}
 		if (myConfig.BlueMoon()) {
 			mySets.add(new EquipmentSet("Blue Moon Armour", ItemID.BLUE_MOON_CHESTPLATE,
 					new ItemSlot(myConfig, ItemID.BLUE_MOON_CHESTPLATE, ItemID.BLUE_MOON_CHESTPLATE_29037),
 					new ItemSlot(myConfig, ItemID.BLUE_MOON_HELM, ItemID.BLUE_MOON_HELM_29041),
-					new ItemSlot(myConfig, ItemID.BLUE_MOON_TASSETS, ItemID.BLUE_MOON_TASSETS_29039)
+					new ItemSlot(myConfig, ItemID.BLUE_MOON_TASSETS, ItemID.BLUE_MOON_TASSETS_29039),
+					new AssociatedSlot(myConfig, ItemID.BLUE_MOON_SPEAR, ItemID.BLUE_MOON_SPEAR_29849)
 			));
 		}
 		if (myConfig.EclipseMoon()) {
 			mySets.add(new EquipmentSet("Eclipse Moon Armour", ItemID.ECLIPSE_MOON_CHESTPLATE,
 					new ItemSlot(myConfig, ItemID.ECLIPSE_MOON_CHESTPLATE, ItemID.ECLIPSE_MOON_CHESTPLATE_29031),
 					new ItemSlot(myConfig, ItemID.ECLIPSE_MOON_HELM, ItemID.ECLIPSE_MOON_HELM_29035),
-					new ItemSlot(myConfig, ItemID.ECLIPSE_MOON_TASSETS, ItemID.ECLIPSE_MOON_TASSETS_29033)
+					new ItemSlot(myConfig, ItemID.ECLIPSE_MOON_TASSETS, ItemID.ECLIPSE_MOON_TASSETS_29033),
+					new AssociatedSlot(myConfig, ItemID.ECLIPSE_ATLATL, ItemID.ECLIPSE_ATLATL_29851)
 			));
 		}
 		if (myConfig.Virtus()) {
@@ -231,49 +248,56 @@ public class PartialSetsPlugin extends Plugin
 			mySets.add(new EquipmentSet("Inquisitors Armour", ItemID.INQUISITORS_GREAT_HELM,
 					new ItemSlot(myConfig, ItemID.INQUISITORS_GREAT_HELM, ItemID.INQUISITORS_GREAT_HELM_27195),
 					new ItemSlot(myConfig, ItemID.INQUISITORS_HAUBERK, ItemID.INQUISITORS_HAUBERK_27196),
-					new ItemSlot(myConfig, ItemID.INQUISITORS_PLATESKIRT, ItemID.INQUISITORS_PLATESKIRT_27197)
+					new ItemSlot(myConfig, ItemID.INQUISITORS_PLATESKIRT, ItemID.INQUISITORS_PLATESKIRT_27197),
+					new AssociatedSlot(myConfig, ItemID.INQUISITORS_MACE, ItemID.INQUISITORS_MACE_27198)
 			));
 		}
 		if (myConfig.Ahrims()) {
 			mySets.add(new EquipmentSet("Ahrims Robes", ItemID.AHRIMS_HOOD,
 					new ItemSlot(myConfig, ItemID.AHRIMS_HOOD, ItemID.AHRIMS_HOOD_100, ItemID.AHRIMS_HOOD_75, ItemID.AHRIMS_HOOD_50, ItemID.AHRIMS_HOOD_25),
 					new ItemSlot(myConfig, ItemID.AHRIMS_ROBETOP, ItemID.AHRIMS_ROBETOP_100, ItemID.AHRIMS_ROBETOP_75, ItemID.AHRIMS_ROBETOP_50, ItemID.AHRIMS_ROBETOP_25),
-					new ItemSlot(myConfig, ItemID.AHRIMS_ROBESKIRT, ItemID.AHRIMS_ROBESKIRT_100, ItemID.AHRIMS_ROBESKIRT_75, ItemID.AHRIMS_ROBESKIRT_50, ItemID.AHRIMS_ROBESKIRT_25)
+					new ItemSlot(myConfig, ItemID.AHRIMS_ROBESKIRT, ItemID.AHRIMS_ROBESKIRT_100, ItemID.AHRIMS_ROBESKIRT_75, ItemID.AHRIMS_ROBESKIRT_50, ItemID.AHRIMS_ROBESKIRT_25),
+					new AssociatedSlot(myConfig, ItemID.AHRIMS_STAFF, ItemID.AHRIMS_STAFF_100, ItemID.AHRIMS_STAFF_75, ItemID.AHRIMS_STAFF_50, ItemID.AHRIMS_STAFF_25, ItemID.AHRIMS_STAFF_23653)
 			));
 		}
 		if (myConfig.Dharoks()) {
 			mySets.add(new EquipmentSet("Dharoks Armour", ItemID.DHAROKS_HELM,
 					new ItemSlot(myConfig, ItemID.DHAROKS_HELM, ItemID.DHAROKS_HELM_100, ItemID.DHAROKS_HELM_75, ItemID.DHAROKS_HELM_50, ItemID.DHAROKS_HELM_25),
 					new ItemSlot(myConfig, ItemID.DHAROKS_PLATEBODY, ItemID.DHAROKS_PLATEBODY_100, ItemID.DHAROKS_PLATEBODY_75, ItemID.DHAROKS_PLATEBODY_50, ItemID.DHAROKS_PLATEBODY_25),
-					new ItemSlot(myConfig, ItemID.DHAROKS_PLATELEGS, ItemID.DHAROKS_PLATELEGS_100, ItemID.DHAROKS_PLATELEGS_75, ItemID.DHAROKS_PLATELEGS_50, ItemID.DHAROKS_PLATELEGS_25)
+					new ItemSlot(myConfig, ItemID.DHAROKS_PLATELEGS, ItemID.DHAROKS_PLATELEGS_100, ItemID.DHAROKS_PLATELEGS_75, ItemID.DHAROKS_PLATELEGS_50, ItemID.DHAROKS_PLATELEGS_25),
+					new AssociatedSlot(myConfig, ItemID.DHAROKS_GREATAXE, ItemID.DHAROKS_GREATAXE_100, ItemID.DHAROKS_GREATAXE_75, ItemID.DHAROKS_GREATAXE_50, ItemID.DHAROKS_GREATAXE_25)
 			));
 		}
 		if (myConfig.Guthans()) {
 			mySets.add(new EquipmentSet("Guthans Armour", ItemID.GUTHANS_HELM,
 					new ItemSlot(myConfig, ItemID.GUTHANS_HELM, ItemID.GUTHANS_HELM_100, ItemID.GUTHANS_HELM_75, ItemID.GUTHANS_HELM_50, ItemID.GUTHANS_HELM_25),
 					new ItemSlot(myConfig, ItemID.GUTHANS_PLATEBODY, ItemID.GUTHANS_PLATEBODY_100, ItemID.GUTHANS_PLATEBODY_75, ItemID.GUTHANS_PLATEBODY_50, ItemID.GUTHANS_PLATEBODY_25),
-					new ItemSlot(myConfig, ItemID.GUTHANS_CHAINSKIRT, ItemID.GUTHANS_CHAINSKIRT_100, ItemID.GUTHANS_CHAINSKIRT_75, ItemID.GUTHANS_CHAINSKIRT_50, ItemID.GUTHANS_CHAINSKIRT_25)
+					new ItemSlot(myConfig, ItemID.GUTHANS_CHAINSKIRT, ItemID.GUTHANS_CHAINSKIRT_100, ItemID.GUTHANS_CHAINSKIRT_75, ItemID.GUTHANS_CHAINSKIRT_50, ItemID.GUTHANS_CHAINSKIRT_25),
+				new AssociatedSlot(myConfig, ItemID.GUTHANS_WARSPEAR, ItemID.GUTHANS_WARSPEAR_100, ItemID.GUTHANS_WARSPEAR_75, ItemID.GUTHANS_WARSPEAR_50, ItemID.GUTHANS_WARSPEAR_25)
 			));
 		}
 		if (myConfig.Karils()) {
 			mySets.add(new EquipmentSet("Karils Armour", ItemID.KARILS_COIF,
 					new ItemSlot(myConfig, ItemID.KARILS_COIF, ItemID.KARILS_COIF_100, ItemID.KARILS_COIF_75, ItemID.KARILS_COIF_50, ItemID.KARILS_COIF_25),
 					new ItemSlot(myConfig, ItemID.KARILS_LEATHERTOP, ItemID.KARILS_LEATHERTOP_100, ItemID.KARILS_LEATHERTOP_75, ItemID.KARILS_LEATHERTOP_50, ItemID.KARILS_LEATHERTOP_25),
-					new ItemSlot(myConfig, ItemID.KARILS_LEATHERSKIRT, ItemID.KARILS_LEATHERSKIRT_100, ItemID.KARILS_LEATHERSKIRT_75, ItemID.KARILS_LEATHERSKIRT_50, ItemID.KARILS_LEATHERSKIRT_25)
+					new ItemSlot(myConfig, ItemID.KARILS_LEATHERSKIRT, ItemID.KARILS_LEATHERSKIRT_100, ItemID.KARILS_LEATHERSKIRT_75, ItemID.KARILS_LEATHERSKIRT_50, ItemID.KARILS_LEATHERSKIRT_25),
+					new AssociatedSlot(myConfig, ItemID.KARILS_CROSSBOW, ItemID.KARILS_CROSSBOW_100, ItemID.KARILS_CROSSBOW_75, ItemID.KARILS_CROSSBOW_50, ItemID.KARILS_CROSSBOW_25)
 			));
 		}
 		if (myConfig.Torags()) {
 			mySets.add(new EquipmentSet("Torags Armour", ItemID.TORAGS_HELM,
 					new ItemSlot(myConfig, ItemID.TORAGS_HELM, ItemID.TORAGS_HELM_100, ItemID.TORAGS_HELM_75, ItemID.TORAGS_HELM_50, ItemID.TORAGS_HELM_25),
 					new ItemSlot(myConfig, ItemID.TORAGS_PLATEBODY, ItemID.TORAGS_PLATEBODY_100, ItemID.TORAGS_PLATEBODY_75, ItemID.TORAGS_PLATEBODY_50, ItemID.TORAGS_PLATEBODY_25),
-					new ItemSlot(myConfig, ItemID.TORAGS_PLATELEGS, ItemID.TORAGS_PLATELEGS_100, ItemID.TORAGS_PLATELEGS_75, ItemID.TORAGS_PLATELEGS_50, ItemID.TORAGS_PLATELEGS_25)
+					new ItemSlot(myConfig, ItemID.TORAGS_PLATELEGS, ItemID.TORAGS_PLATELEGS_100, ItemID.TORAGS_PLATELEGS_75, ItemID.TORAGS_PLATELEGS_50, ItemID.TORAGS_PLATELEGS_25),
+					new AssociatedSlot(myConfig, ItemID.TORAGS_HAMMERS, ItemID.TORAGS_HAMMERS_100, ItemID.TORAGS_HAMMERS_75, ItemID.TORAGS_HAMMERS_50, ItemID.TORAGS_HAMMERS_25)
 			));
 		}
 		if (myConfig.Veracs()) {
 			mySets.add(new EquipmentSet("Veracs Armour", ItemID.VERACS_HELM,
 					new ItemSlot(myConfig, ItemID.VERACS_HELM, ItemID.VERACS_HELM_100, ItemID.VERACS_HELM_75, ItemID.VERACS_HELM_50, ItemID.VERACS_HELM_25),
 					new ItemSlot(myConfig, ItemID.VERACS_BRASSARD, ItemID.VERACS_BRASSARD_100, ItemID.VERACS_BRASSARD_75, ItemID.VERACS_BRASSARD_50, ItemID.VERACS_BRASSARD_25),
-					new ItemSlot(myConfig, ItemID.VERACS_PLATESKIRT, ItemID.VERACS_PLATESKIRT_100, ItemID.VERACS_PLATESKIRT_75, ItemID.VERACS_PLATESKIRT_50, ItemID.VERACS_PLATESKIRT_25)
+					new ItemSlot(myConfig, ItemID.VERACS_PLATESKIRT, ItemID.VERACS_PLATESKIRT_100, ItemID.VERACS_PLATESKIRT_75, ItemID.VERACS_PLATESKIRT_50, ItemID.VERACS_PLATESKIRT_25),
+					new AssociatedSlot(myConfig, ItemID.VERACS_FLAIL, ItemID.VERACS_FLAIL_100, ItemID.VERACS_FLAIL_75, ItemID.VERACS_FLAIL_50, ItemID.VERACS_FLAIL_25)
 			));
 		}
 		if (myConfig.Graceful()) {
@@ -333,6 +357,7 @@ public class PartialSetsPlugin extends Plugin
 					new ItemSlot(myConfig,
 							ItemID.CRYSTAL_LEGS, 		ItemID.CRYSTAL_LEGS_27701, ItemID.CRYSTAL_LEGS_27713, ItemID.CRYSTAL_LEGS_27725,
 							ItemID.CRYSTAL_LEGS_27737, 	ItemID.CRYSTAL_LEGS_27749, ItemID.CRYSTAL_LEGS_27761, ItemID.CRYSTAL_LEGS_27773)
+					//new AssociatedSlot(myConfig, ) there are way too many version of these items, i will add them only if someone complains :p
 			));
 		}
 		if (myConfig.Shayzien()) {
@@ -399,36 +424,54 @@ public class PartialSetsPlugin extends Plugin
 		if (myConfig.Gauntlet())
 		{
 			mySets.add(new EquipmentSet("Gauntlet T1 armour", ItemID.CRYSTAL_BODY_BASIC,
-					new ItemSlot(myConfig, ItemID.CRYSTAL_HELM_BASIC),
-					new ItemSlot(myConfig, ItemID.CRYSTAL_BODY_BASIC),
-					new ItemSlot(myConfig, ItemID.CRYSTAL_LEGS_BASIC)
+					new ItemSlot(myConfig, ItemID.CRYSTAL_HELM_BASIC, ItemID.CRYSTAL_HELM_ATTUNED, ItemID.CRYSTAL_HELM_PERFECTED),
+					new ItemSlot(myConfig, ItemID.CRYSTAL_BODY_BASIC, ItemID.CRYSTAL_BODY_ATTUNED, ItemID.CRYSTAL_BODY_PERFECTED),
+					new ItemSlot(myConfig, ItemID.CRYSTAL_LEGS_BASIC, ItemID.CRYSTAL_LEGS_ATTUNED, ItemID.CRYSTAL_LEGS_PERFECTED),
+					new AssociatedSlot(myConfig,
+							ItemID.CRYSTAL_BOW_BASIC, ItemID.CRYSTAL_HALBERD_BASIC, ItemID.CRYSTAL_STAFF_BASIC,
+							ItemID.CRYSTAL_BOW_ATTUNED, ItemID.CRYSTAL_HALBERD_ATTUNED, ItemID.CRYSTAL_STAFF_ATTUNED,
+							ItemID.CRYSTAL_BOW_PERFECTED, ItemID.CRYSTAL_HALBERD_PERFECTED, ItemID.CRYSTAL_STAFF_PERFECTED)
 			));
 			mySets.add(new EquipmentSet("Corrupted Gauntlet T1 armour", ItemID.CORRUPTED_BODY_BASIC,
-					new ItemSlot(myConfig, ItemID.CORRUPTED_HELM_BASIC),
-					new ItemSlot(myConfig, ItemID.CORRUPTED_BODY_BASIC),
-					new ItemSlot(myConfig, ItemID.CORRUPTED_LEGS_BASIC)
+					new ItemSlot(myConfig, ItemID.CORRUPTED_HELM_BASIC, ItemID.CORRUPTED_HELM_ATTUNED, ItemID.CORRUPTED_HELM_PERFECTED),
+					new ItemSlot(myConfig, ItemID.CORRUPTED_BODY_BASIC, ItemID.CORRUPTED_BODY_ATTUNED, ItemID.CORRUPTED_BODY_PERFECTED),
+					new ItemSlot(myConfig, ItemID.CORRUPTED_LEGS_BASIC, ItemID.CORRUPTED_LEGS_ATTUNED, ItemID.CORRUPTED_LEGS_PERFECTED),
+					new AssociatedSlot(myConfig,
+							ItemID.CORRUPTED_BOW_BASIC, ItemID.CORRUPTED_HALBERD_BASIC, ItemID.CORRUPTED_STAFF_BASIC,
+							ItemID.CORRUPTED_BOW_ATTUNED, ItemID.CORRUPTED_HALBERD_ATTUNED, ItemID.CORRUPTED_STAFF_ATTUNED,
+							ItemID.CORRUPTED_BOW_PERFECTED, ItemID.CORRUPTED_HALBERD_PERFECTED, ItemID.CORRUPTED_STAFF_PERFECTED)
 			));
 
 			mySets.add(new EquipmentSet("Gauntlet T2 armour", ItemID.CRYSTAL_BODY_ATTUNED,
-					new ItemSlot(myConfig, ItemID.CRYSTAL_HELM_ATTUNED),
-					new ItemSlot(myConfig, ItemID.CRYSTAL_BODY_ATTUNED),
-					new ItemSlot(myConfig, ItemID.CRYSTAL_LEGS_ATTUNED)
+					new ItemSlot(myConfig, ItemID.CRYSTAL_HELM_ATTUNED, ItemID.CRYSTAL_HELM_PERFECTED),
+					new ItemSlot(myConfig, ItemID.CRYSTAL_BODY_ATTUNED, ItemID.CRYSTAL_BODY_PERFECTED),
+					new ItemSlot(myConfig, ItemID.CRYSTAL_LEGS_ATTUNED, ItemID.CRYSTAL_LEGS_PERFECTED),
+					new AssociatedSlot(myConfig,
+							ItemID.CRYSTAL_BOW_ATTUNED, ItemID.CRYSTAL_HALBERD_ATTUNED, ItemID.CRYSTAL_STAFF_ATTUNED,
+							ItemID.CRYSTAL_BOW_PERFECTED, ItemID.CRYSTAL_HALBERD_PERFECTED, ItemID.CRYSTAL_STAFF_PERFECTED)
 			));
 			mySets.add(new EquipmentSet("Corrupted Gauntlet T2 armour", ItemID.CORRUPTED_BODY_ATTUNED,
-					new ItemSlot(myConfig, ItemID.CORRUPTED_HELM_ATTUNED),
-					new ItemSlot(myConfig, ItemID.CORRUPTED_BODY_ATTUNED),
-					new ItemSlot(myConfig, ItemID.CORRUPTED_LEGS_ATTUNED)
+					new ItemSlot(myConfig, ItemID.CORRUPTED_HELM_ATTUNED, ItemID.CORRUPTED_HELM_PERFECTED),
+					new ItemSlot(myConfig, ItemID.CORRUPTED_BODY_ATTUNED, ItemID.CORRUPTED_BODY_PERFECTED),
+					new ItemSlot(myConfig, ItemID.CORRUPTED_LEGS_ATTUNED, ItemID.CORRUPTED_LEGS_PERFECTED),
+					new AssociatedSlot(myConfig,
+							ItemID.CORRUPTED_BOW_ATTUNED, ItemID.CORRUPTED_HALBERD_ATTUNED, ItemID.CORRUPTED_STAFF_ATTUNED,
+							ItemID.CORRUPTED_BOW_PERFECTED, ItemID.CORRUPTED_HALBERD_PERFECTED, ItemID.CORRUPTED_STAFF_PERFECTED)
 			));
 
 			mySets.add(new EquipmentSet("Gauntlet T3 armour", ItemID.CRYSTAL_BODY_PERFECTED,
 					new ItemSlot(myConfig, ItemID.CRYSTAL_HELM_PERFECTED),
 					new ItemSlot(myConfig, ItemID.CRYSTAL_BODY_PERFECTED),
-					new ItemSlot(myConfig, ItemID.CRYSTAL_LEGS_PERFECTED)
+					new ItemSlot(myConfig, ItemID.CRYSTAL_LEGS_PERFECTED),
+					new AssociatedSlot(myConfig,
+							ItemID.CRYSTAL_BOW_PERFECTED, ItemID.CRYSTAL_HALBERD_PERFECTED, ItemID.CRYSTAL_STAFF_PERFECTED)
 			));
 			mySets.add(new EquipmentSet("Corrupted Gauntlet T3 armour", ItemID.CORRUPTED_BODY_PERFECTED,
 					new ItemSlot(myConfig, ItemID.CORRUPTED_HELM_PERFECTED),
 					new ItemSlot(myConfig, ItemID.CORRUPTED_BODY_PERFECTED),
-					new ItemSlot(myConfig, ItemID.CORRUPTED_LEGS_PERFECTED)
+					new ItemSlot(myConfig, ItemID.CORRUPTED_LEGS_PERFECTED),
+					new AssociatedSlot(myConfig,
+							ItemID.CORRUPTED_BOW_PERFECTED, ItemID.CORRUPTED_HALBERD_PERFECTED, ItemID.CORRUPTED_STAFF_PERFECTED)
 			));
 		}
 	}

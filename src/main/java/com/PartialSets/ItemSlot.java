@@ -17,7 +17,8 @@ public class ItemSlot {
     {
         NotPresent,
         Equipped,
-        EquippedNoWarning
+        EquippedNoWarning,
+        NotRequired
     }
 
     PartialSetsConfig myConfig;
@@ -59,11 +60,11 @@ public class ItemSlot {
             if (myEmptyName.equals(""))
                 myEmptyName = aItemManager.getItemComposition(myItems[0]).getMembersName();
 
-            return ColorUtil.wrapWithColorTag(myEmptyName, myConfig.UnequippedTextColor());
+            return "</br>" + ColorUtil.wrapWithColorTag(myEmptyName, myConfig.UnequippedTextColor());
         }
         else
         {
-            return ColorUtil.wrapWithColorTag(aItemManager.getItemComposition(myLastEquipped).getMembersName(), myConfig.EquippedTextColor());
+            return "</br>" + ColorUtil.wrapWithColorTag(aItemManager.getItemComposition(myLastEquipped).getMembersName(), myConfig.EquippedTextColor());
         }
     }
 

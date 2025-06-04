@@ -12,6 +12,7 @@ public class EquipmentSet {
     public String myName;
 
     public int myLastCount;
+    public int myFullCount;
 
     EquipmentSet(String aName, int aIconId, ItemSlot... slots)
     {
@@ -32,9 +33,14 @@ public class EquipmentSet {
         int count = 0;
         boolean shouldShow = false;
 
+        myFullCount = mySlots.length;
+
         for (ItemSlot slot : mySlots) {
             switch (slot.IsEquipped(aEquipment))
             {
+                case NotRequired:
+                    myFullCount--;
+                    break;
                 case NotPresent:
                     break;
                 case EquippedNoWarning:
@@ -51,7 +57,7 @@ public class EquipmentSet {
 
         if (shouldShow)
         {
-            if (count == mySlots.length)
+            if (count == myFullCount)
                 return  CheckResult.FULL;
 
             return CheckResult.PARTIAL;
