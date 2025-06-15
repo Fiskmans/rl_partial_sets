@@ -1,5 +1,6 @@
 package com.PartialSets;
 
+import net.runelite.api.Item;
 import net.runelite.api.ItemContainer;
 import net.runelite.client.game.ItemManager;
 import net.runelite.client.util.ColorUtil;
@@ -21,6 +22,14 @@ public class ItemSlot {
         NotRequired
     }
 
+    enum Mode
+    {
+        Id,
+        Name
+    }
+
+    Mode myMode;
+
     PartialSetsConfig myConfig;
     Integer myLastEquipped = -1;
     String myEmptyName = "";
@@ -30,10 +39,21 @@ public class ItemSlot {
 
     ItemSlot(PartialSetsConfig aConfig, Integer... aItems)
     {
+        myMode = Mode.Id;
+
         myConfig = aConfig;
         myItems = aItems;
 
         assert myItems.length > 0;
+    }
+
+    ItemSlot(PartialSetsConfig aConfig, String aName)
+    {
+        myMode = Mode.Name;
+
+        myConfig = aConfig;
+        myEmptyName = aName;
+        myItems = new Integer[]{1}; //This should never be visible, here as a safeguard
     }
 
     // Some sets (Shayzien 5) have items (slayer helm) which can be used for the set bonus
@@ -47,12 +67,6 @@ public class ItemSlot {
         return this;
     }
 
-    ItemSlot SetEmptyName(String aName)
-    {
-        myEmptyName = aName;
-        return this;
-    }
-
     public String toColoredString(ItemManager aItemManager)
     {
         if (myLastEquipped == -1)
@@ -60,7 +74,14 @@ public class ItemSlot {
             if (myEmptyName.equals(""))
                 myEmptyName = aItemManager.getItemComposition(myItems[0]).getMembersName();
 
-            return "</br>" + ColorUtil.wrapWithColorTag(myEmptyName, myConfig.UnequippedTextColor());
+            if (myItems.length > 1)
+            {
+                return "</br>" + ColorUtil.wrapWithColorTag(myEmptyName + "(+" + (myItems.length - 1) + ")", myConfig.UnequippedTextColor());
+            }
+            else
+            {
+                return "</br>" + ColorUtil.wrapWithColorTag(myEmptyName, myConfig.UnequippedTextColor());
+            }
         }
         else
         {
@@ -68,32 +89,52 @@ public class ItemSlot {
         }
     }
 
-    EquipStatus IsEquipped(ItemContainer aEquipment)
+    EquipStatus IsEquipped(ItemContainer aEquipment, ItemManager aItemManager)
     {
+        switch (myMode)
         {
-            Optional<Integer> equipped = Arrays.stream(myItems)
-                                            .filter(item ->  aEquipment.contains(item))
-                                            .findFirst();
+            case Id:
+                {
+                    Optional<Integer> equipped = Arrays.stream(myItems)
+                            .filter(item ->  aEquipment.contains(item))
+                            .findFirst();
 
-            if (equipped.isPresent())
-            {
-                myLastEquipped = equipped.get();
-                return EquipStatus.Equipped;
-            }
+                    if (equipped.isPresent())
+                    {
+                        myLastEquipped = equipped.get();
+                        return EquipStatus.Equipped;
+                    }
+                }
+                {
+                    Optional<Integer> equipped = Arrays.stream(myNonWarning)
+                            .filter(item ->  aEquipment.contains(item))
+                            .findFirst();
+
+                    if (equipped.isPresent())
+                    {
+                        myLastEquipped = equipped.get();
+                        return EquipStatus.EquippedNoWarning;
+                    }
+                }
+
+                myLastEquipped = -1;
+                return EquipStatus.NotPresent;
+
+            case Name:
+                {
+                    Optional<Item> equipped = Arrays.stream(aEquipment.getItems())
+                            .filter(item -> myEmptyName.equals(aItemManager.getItemComposition(item.getId()).getName()))
+                            .findFirst();
+
+                    if (equipped.isPresent())
+                    {
+                        myLastEquipped = equipped.get().getId();
+                        return EquipStatus.Equipped;
+                    }
+                }
+                return EquipStatus.NotPresent;
         }
-        {
-            Optional<Integer> equipped = Arrays.stream(myNonWarning)
-                                            .filter(item ->  aEquipment.contains(item))
-                                            .findFirst();
 
-            if (equipped.isPresent())
-            {
-                myLastEquipped = equipped.get();
-                return EquipStatus.EquippedNoWarning;
-            }
-        }
-
-        myLastEquipped = -1;
-        return EquipStatus.NotPresent;
+        return EquipStatus.NotRequired;
     }
 }

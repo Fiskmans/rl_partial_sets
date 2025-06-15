@@ -12,10 +12,10 @@ public class AssociatedSlot extends ItemSlot
     }
 
     @Override
-    EquipStatus IsEquipped(ItemContainer aEquipment)
+    EquipStatus IsEquipped(ItemContainer aEquipment, ItemManager aManager)
     {
         if (myConfig.Associated())
-            return super.IsEquipped(aEquipment);
+            return super.IsEquipped(aEquipment, aManager);
 
         return EquipStatus.NotRequired;
     }

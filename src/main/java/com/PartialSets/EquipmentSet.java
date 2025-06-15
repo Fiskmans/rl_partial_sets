@@ -1,6 +1,7 @@
 package com.PartialSets;
 
 import net.runelite.api.ItemContainer;
+import net.runelite.client.game.ItemManager;
 
 import java.util.Arrays;
 import java.util.List;
@@ -28,7 +29,7 @@ public class EquipmentSet {
         FULL
     }
 
-    CheckResult Check(ItemContainer aEquipment)
+    CheckResult Check(ItemContainer aEquipment, ItemManager aItemManager)
     {
         int count = 0;
         boolean shouldShow = false;
@@ -36,7 +37,7 @@ public class EquipmentSet {
         myFullCount = mySlots.length;
 
         for (ItemSlot slot : mySlots) {
-            switch (slot.IsEquipped(aEquipment))
+            switch (slot.IsEquipped(aEquipment, aItemManager))
             {
                 case NotRequired:
                     myFullCount--;
