@@ -76,7 +76,7 @@ public class ItemSlot {
 
             if (myItems.length > 1)
             {
-                return "</br>" + ColorUtil.wrapWithColorTag(myEmptyName + "(+" + (myItems.length - 1) + ")", myConfig.UnequippedTextColor());
+                return "</br>" + ColorUtil.wrapWithColorTag(myEmptyName + " (+" + (myItems.length - 1) + ")", myConfig.UnequippedTextColor());
             }
             else
             {
