@@ -103,6 +103,16 @@ public class Sets {
             ));
         }
 
+        if (aConfig.Fishing())
+        {
+            sets.add(new EquipmentSet("Anglers outift", ItemID.ANGLER_BOOTS,
+                    new ItemSlot(aConfig, ItemID.ANGLER_HAT, ItemID.SPIRIT_ANGLER_HEADBAND),
+                    new ItemSlot(aConfig, ItemID.ANGLER_TOP, ItemID.SPIRIT_ANGLER_TOP),
+                    new ItemSlot(aConfig, ItemID.ANGLER_WADERS, ItemID.SPIRIT_ANGLER_WADERS),
+                    new ItemSlot(aConfig, ItemID.ANGLER_BOOTS, ItemID.SPIRIT_ANGLER_BOOTS)
+            ));
+        }
+
         if (aConfig.BloodMoon()) {
             sets.add(new EquipmentSet("Blood Moon Armour", ItemID.BLOOD_MOON_CHESTPLATE,
                     new ItemSlot(aConfig, ItemID.BLOOD_MOON_CHESTPLATE, ItemID.BLOOD_MOON_CHESTPLATE_29043),

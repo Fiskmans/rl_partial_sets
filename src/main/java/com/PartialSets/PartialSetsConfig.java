@@ -203,6 +203,13 @@ public interface PartialSetsConfig extends Config
 			section = skilling
 	)
 	default boolean Runecrafting() { return true; }
+	@ConfigItem(
+			keyName = "set_fishing",
+			name = "Anglers outfit",
+			description = "Track 'Anglers outfit'",
+			section = skilling
+	)
+	default boolean Fishing() { return true; }
 
 	// Moons
 	@ConfigItem(
