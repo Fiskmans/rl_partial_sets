@@ -37,8 +37,8 @@ public class Sets {
                             ItemID.VOID_KNIGHT_ROBE, ItemID.VOID_KNIGHT_ROBE_L, ItemID.VOID_KNIGHT_ROBE_LOR, ItemID.VOID_KNIGHT_ROBE_OR),
                     new ItemSlot(aConfig,
                             ItemID.VOID_KNIGHT_GLOVES, ItemID.VOID_KNIGHT_GLOVES_L, ItemID.VOID_KNIGHT_GLOVES_LOR, ItemID.VOID_KNIGHT_GLOVES_OR),
-                    new AssociatedSlot(aConfig,
-                            ItemID.VOID_KNIGHT_MACE, ItemID.VOID_KNIGHT_MACE_L)
+                    //new AssociatedSlot(aConfig,
+                    //        ItemID.VOID_KNIGHT_MACE, ItemID.VOID_KNIGHT_MACE_L) This is a very niche item, so having associated items set to true makes this a bit obnoxious.
             ));
         }
         if (aConfig.Obsidian()) {
@@ -173,7 +173,7 @@ public class Sets {
                     new ItemSlot(aConfig, "Graceful legs"),
                     new ItemSlot(aConfig, "Graceful gloves"),
                     new ItemSlot(aConfig, "Graceful boots"),
-                    new ItemSlot(aConfig, "Graceful cape")
+                    new ItemSlot(aConfig, "Graceful cape", ItemID.AGILITY_CAPE, ItemID.AGILITY_CAPET, ItemID.MAX_CAPE, MAX_CAPE_13342)
             ));
         }
         if (aConfig.Gauntlet()) {
@@ -307,7 +307,8 @@ public class Sets {
                     new ItemSlot(aConfig, ItemID.ROGUE_TOP),
                     new ItemSlot(aConfig, ItemID.ROGUE_GLOVES),
                     new ItemSlot(aConfig, ItemID.ROGUE_TROUSERS),
-                    new ItemSlot(aConfig, ItemID.ROGUE_BOOTS)
+                    new ItemSlot(aConfig, ItemID.ROGUE_BOOTS),
+                    new AssociatedSlot(aConfig, ItemID.DODGY_NECKLACE)
             ));
         }
         if (aConfig.Hunter()) {
@@ -349,7 +350,8 @@ public class Sets {
                     new ItemSlot(aConfig, ItemID.ANGLER_HAT, ItemID.SPIRIT_ANGLER_HEADBAND),
                     new ItemSlot(aConfig, ItemID.ANGLER_TOP, ItemID.SPIRIT_ANGLER_TOP),
                     new ItemSlot(aConfig, ItemID.ANGLER_WADERS, ItemID.SPIRIT_ANGLER_WADERS),
-                    new ItemSlot(aConfig, ItemID.ANGLER_BOOTS, ItemID.SPIRIT_ANGLER_BOOTS)
+                    new ItemSlot(aConfig, ItemID.ANGLER_BOOTS, ItemID.SPIRIT_ANGLER_BOOTS),
+                    new AssociatedSlot(aConfig, ItemID.RADAS_BLESSING_1, ItemID.RADAS_BLESSING, ItemID.RADAS_BLESSING_2, ItemID.RADAS_BLESSING_3, ItemID.RADAS_BLESSING_4)            
             ));
         }
 
