@@ -37,8 +37,6 @@ public class Sets {
                             ItemID.VOID_KNIGHT_ROBE, ItemID.VOID_KNIGHT_ROBE_L, ItemID.VOID_KNIGHT_ROBE_LOR, ItemID.VOID_KNIGHT_ROBE_OR),
                     new ItemSlot(aConfig,
                             ItemID.VOID_KNIGHT_GLOVES, ItemID.VOID_KNIGHT_GLOVES_L, ItemID.VOID_KNIGHT_GLOVES_LOR, ItemID.VOID_KNIGHT_GLOVES_OR),
-                    //new AssociatedSlot(aConfig,
-                    //        ItemID.VOID_KNIGHT_MACE, ItemID.VOID_KNIGHT_MACE_L) This is a very niche item, so having associated items set to true makes this a bit obnoxious.
             ));
         }
         if (aConfig.Obsidian()) {
@@ -173,7 +171,7 @@ public class Sets {
                     new ItemSlot(aConfig, "Graceful legs"),
                     new ItemSlot(aConfig, "Graceful gloves"),
                     new ItemSlot(aConfig, "Graceful boots"),
-                    new ItemSlot(aConfig, "Graceful cape", ItemID.AGILITY_CAPE, ItemID.AGILITY_CAPET, ItemID.MAX_CAPE, MAX_CAPE_13342)
+                    new ItemSlot(aConfig, "Graceful cape")
             ));
         }
         if (aConfig.Gauntlet()) {
