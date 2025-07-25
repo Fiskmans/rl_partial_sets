@@ -18,13 +18,18 @@ public class EquipmentSetInfoBox extends InfoBox {
         mySet = aSet;
         myConfig = aConfig;
 
-        String tooltip = "Partial " + ColorUtil.wrapWithColorTag(mySet.myName, myConfig.SetTextColor()) + " equipped";
+        Refresh(aItemManager);
+    }
+
+    public void Refresh(ItemManager aItemManager)
+    {
+        StringBuilder tooltip = new StringBuilder("Partial " + ColorUtil.wrapWithColorTag(mySet.myName, myConfig.SetTextColor()) + " equipped");
 
         for (ItemSlot slot : mySet.mySlots) {
-            tooltip += slot.toColoredString(aItemManager);
+            tooltip.append(slot.toColoredString(aItemManager));
         }
 
-        setTooltip(tooltip);
+        setTooltip(tooltip.toString());
     }
 
     @Override

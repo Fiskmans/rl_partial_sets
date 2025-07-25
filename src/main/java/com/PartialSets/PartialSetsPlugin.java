@@ -7,7 +7,6 @@ import javax.swing.*;
 
 import lombok.extern.slf4j.Slf4j;
 import net.runelite.api.*;
-import net.runelite.api.events.GameStateChanged;
 import net.runelite.api.events.ItemContainerChanged;
 import net.runelite.client.callback.ClientThread;
 import net.runelite.client.config.ConfigManager;
@@ -16,11 +15,9 @@ import net.runelite.client.events.ConfigChanged;
 import net.runelite.client.game.ItemManager;
 import net.runelite.client.plugins.Plugin;
 import net.runelite.client.plugins.PluginDescriptor;
-import net.runelite.client.ui.overlay.infobox.InfoBox;
 import net.runelite.client.ui.overlay.infobox.InfoBoxManager;
 
-import java.util.ArrayList;
-import java.util.Arrays;
+import java.awt.event.ActionEvent;
 import java.util.List;
 
 @Slf4j
@@ -33,27 +30,38 @@ public class PartialSetsPlugin extends Plugin
 	private Client client;
 
 	@Inject
-	private PartialSetsConfig myConfig;
+	public PartialSetsConfig myConfig;
 	@Inject
-	private InfoBoxManager infoBoxes;
+	private InfoBoxManager myInfoBoxes;
 	@Inject
-	private ItemManager myItemManager;
+	public ItemManager myItemManager;
 	@Inject
-	private ClientThread myClientThread;
+	public ClientThread myClientThread;
+
+	private final Timer myInfoboxRefresher;
 
 	List<EquipmentSet> mySets;
+
+	public PartialSetsPlugin()
+	{
+		myInfoboxRefresher = new Timer(1000, this::Refresh);
+		myInfoboxRefresher.setRepeats(true);
+	}
 
 	@Override
 	protected void startUp() throws Exception
 	{
 		log.info("PartialSets started!");
 		Setup();
+		myInfoboxRefresher.setDelay(myConfig.CycleInterval());
+		myInfoboxRefresher.start();
 	}
 
 	@Override
 	protected void shutDown() throws Exception
 	{
 		log.info("PartialSets stopped!");
+		myInfoboxRefresher.stop();
 		mySets = null;
 		Reset();
 	}
@@ -65,6 +73,7 @@ public class PartialSetsPlugin extends Plugin
 			return;
 
 		Reset();
+		myInfoboxRefresher.setDelay(myConfig.CycleInterval());
 		myClientThread.invokeLater(() ->
 		{
 			Setup();
@@ -105,7 +114,7 @@ public class PartialSetsPlugin extends Plugin
 
 	void PartialSetEquipped(EquipmentSet aSet)
 	{
-		infoBoxes.addInfoBox(new EquipmentSetInfoBox(this, myItemManager, myConfig, aSet));
+		myInfoBoxes.addInfoBox(new EquipmentSetInfoBox(this, myItemManager, myConfig, aSet));
 	}
 
 	void Setup()
@@ -113,8 +122,17 @@ public class PartialSetsPlugin extends Plugin
 		mySets = Sets.All(this, myConfig);
 	}
 
+	private void Refresh(ActionEvent actionEvent)
+	{
+		myClientThread.invokeLater(() ->
+				myInfoBoxes.getInfoBoxes().stream()
+						.filter((i) -> i.getClass() == EquipmentSetInfoBox.class)
+						.forEach((i) ->
+								((EquipmentSetInfoBox)i).Refresh(myItemManager)));
+	}
+
 	void Reset()
 	{
-		infoBoxes.removeIf(infoBox -> infoBox.getClass() == EquipmentSetInfoBox.class);
+		myInfoBoxes.removeIf(infoBox -> infoBox.getClass() == EquipmentSetInfoBox.class);
 	}
 }

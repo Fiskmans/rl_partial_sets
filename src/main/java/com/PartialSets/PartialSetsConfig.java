@@ -80,6 +80,13 @@ public interface PartialSetsConfig extends Config
 			section = appearance
 	)
 	default Color SetTextColor() { return Color.ORANGE; }
+	@ConfigItem(
+			keyName = "cycle_interval",
+			name = "Option speed",
+			description = "How often to go to the next option in tooltips (ms)",
+			section = appearance
+	)
+	default Integer CycleInterval() { return 2500; }
 
 	// Misc
 	@ConfigItem(

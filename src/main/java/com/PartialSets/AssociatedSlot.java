@@ -5,15 +5,15 @@ import net.runelite.client.game.ItemManager;
 
 public class AssociatedSlot extends ItemSlot
 {
-    AssociatedSlot(PartialSetsConfig aConfig, Integer... aItems)
+    AssociatedSlot(PartialSetsPlugin aPlugin, Integer... aItems)
     {
-        super(aConfig, aItems);
+        super(aPlugin, aItems);
     }
 
     @Override
     EquipStatus IsEquipped(ItemContainer aEquipment, ItemManager aManager)
     {
-        if (!myConfig.Associated())
+        if (!myPlugin.myConfig.Associated())
         {
             return EquipStatus.NotRequired;
         }
@@ -35,7 +35,7 @@ public class AssociatedSlot extends ItemSlot
     @Override
     public String toColoredString(ItemManager aItemManager)
     {
-        if (myConfig.Associated())
+        if (myPlugin.myConfig.Associated())
             return super.toColoredString(aItemManager);
 
         return "";

@@ -6,11 +6,9 @@ import net.runelite.client.game.ItemManager;
 import net.runelite.client.util.ColorUtil;
 
 import java.awt.*;
-import java.util.ArrayList;
-import java.util.Arrays;
+import java.util.*;
 import java.util.List;
-import java.util.Optional;
-import java.util.stream.Stream;
+import java.util.stream.Collectors;
 
 public class ItemSlot {
 
@@ -30,29 +28,32 @@ public class ItemSlot {
 
     Mode myMode;
 
-    PartialSetsConfig myConfig;
+    PartialSetsPlugin myPlugin;
     Integer myLastEquipped = -1;
-    String myEmptyName = "";
+    List<String> myNames = new ArrayList<>();
+    int myNameIndex = 0;
 
     Integer[] myItems;
+    String myByName;
     Integer[] myNonWarning = new Integer[]{};
 
-    ItemSlot(PartialSetsConfig aConfig, Integer... aItems)
+    ItemSlot(PartialSetsPlugin aPlugin, Integer... aItems)
     {
         myMode = Mode.Id;
 
-        myConfig = aConfig;
+        myPlugin = aPlugin;
         myItems = aItems;
 
         assert myItems.length > 0;
     }
 
-    ItemSlot(PartialSetsConfig aConfig, String aName)
+    ItemSlot(PartialSetsPlugin aPlugin, String aName)
     {
         myMode = Mode.Name;
 
-        myConfig = aConfig;
-        myEmptyName = aName;
+        myPlugin = aPlugin;
+        myByName = aName;
+        myNames.add(aName);
         myItems = new Integer[]{1}; //This should never be visible, here as a safeguard
     }
 
@@ -69,23 +70,51 @@ public class ItemSlot {
 
     public String toColoredString(ItemManager aItemManager)
     {
+        if (myNames.isEmpty())
+        {
+            switch (myMode)
+            {
+                case Id:
+                    for (Integer item : myItems)
+                    {
+                        myNames.add(myPlugin.myItemManager.getItemComposition(item).getMembersName());
+                    }
+                    break;
+                case Name:
+                    myNames.add(myByName);
+                    break;
+            }
+
+            for (Integer item : myNonWarning)
+            {
+                myNames.add(myPlugin.myItemManager.getItemComposition(item).getMembersName());
+            }
+
+            myNames = myNames.stream().distinct().collect(Collectors.toList());
+            myNames.sort(String::compareTo);
+        }
+
         if (myLastEquipped == -1)
         {
-            if (myEmptyName.isEmpty())
-                myEmptyName = aItemManager.getItemComposition(myItems[0]).getMembersName();
+            Color col = myPlugin.myConfig.UnequippedTextColor();
 
-            if (myItems.length > 1)
+            if (myNames.size() > 1)
             {
-                return "</br>" + ColorUtil.wrapWithColorTag(myEmptyName + " (+" + (myItems.length - 1) + ")", myConfig.UnequippedTextColor());
+                myNameIndex = (myNameIndex + 1) % myNames.size();
+                return "</br>" + ColorUtil.wrapWithColorTag(myNames.get(myNameIndex) + " \t(" + (myNameIndex + 1) + "/" + (myItems.length) + ")", col);
+            }
+            else if (myNames.size() == 1)
+            {
+                return "</br>" + ColorUtil.wrapWithColorTag(myNames.get(0), col);
             }
             else
             {
-                return "</br>" + ColorUtil.wrapWithColorTag(myEmptyName, myConfig.UnequippedTextColor());
+                return "</br>";
             }
         }
         else
         {
-            return "</br>" + ColorUtil.wrapWithColorTag(aItemManager.getItemComposition(myLastEquipped).getMembersName(), myConfig.EquippedTextColor());
+            return "</br>" + ColorUtil.wrapWithColorTag(aItemManager.getItemComposition(myLastEquipped).getMembersName(), myPlugin.myConfig.EquippedTextColor());
         }
     }
 
@@ -123,7 +152,7 @@ public class ItemSlot {
             case Name:
                 {
                     Optional<Item> equipped = Arrays.stream(aEquipment.getItems())
-                            .filter(item -> myEmptyName.equals(aItemManager.getItemComposition(item.getId()).getName()))
+                            .filter(item -> myByName.equals(aItemManager.getItemComposition(item.getId()).getName()))
                             .findFirst();
 
                     if (equipped.isPresent())
