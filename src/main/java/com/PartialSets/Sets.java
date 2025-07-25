@@ -353,6 +353,23 @@ public class Sets {
                     new AssociatedSlot(aConfig, ItemID.RADAS_BLESSING_1, ItemID.RADAS_BLESSING, ItemID.RADAS_BLESSING_2, ItemID.RADAS_BLESSING_3, ItemID.RADAS_BLESSING_4)            
             ));
         }
+        if (aConfig.Zealot()) {
+            sets.add(new EquipmentSet("Zealots robes", ItemID.ZEALOTS_HELM,
+                    new ItemSlot(aConfig, ItemID.ZEALOTS_HELM),
+                    new ItemSlot(aConfig, ItemID.ZEALOTS_ROBE_TOP),
+                    new ItemSlot(aConfig, ItemID.ZEALOTS_ROBE_BOTTOM),
+                    new ItemSlot(aConfig, ItemID.ZEALOTS_BOOTS)
+            ));
+        }
+        if (aConfig.Pyromancer()) {
+            sets.add(new EquipmentSet("Pyromancers outfit", ItemID.PYROMANCER_ROBE,
+                    new ItemSlot(aConfig, ItemID.PYROMANCER_HOOD),
+                    new ItemSlot(aConfig, ItemID.PYROMANCER_GARB),
+                    new ItemSlot(aConfig, ItemID.PYROMANCER_ROBE),
+                    new ItemSlot(aConfig, ItemID.PYROMANCER_BOOTS),
+                    new AssociatedSlot(aConfig, ItemID.BRUMA_TORCH, ItemID.BRUMA_TORCH_OFFHAND)
+            ));
+        }
 
         return sets;
     }

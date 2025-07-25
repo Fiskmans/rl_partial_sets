@@ -210,6 +210,20 @@ public interface PartialSetsConfig extends Config
 			section = skilling
 	)
 	default boolean Fishing() { return true; }
+	@ConfigItem(
+			keyName = "set_zealot",
+			name = "Zealots robes",
+			description = "Track 'Zealot robes'",
+			section = skilling
+	)
+	default boolean Zealot() { return true; }
+	@ConfigItem(
+			keyName = "set_pyromancer",
+			name = "Pyromancers outfit",
+			description = "Track 'Pyromancers outfit'",
+			section = skilling
+	)
+	default boolean Pyromancer() { return true; }
 
 	// Moons
 	@ConfigItem(
