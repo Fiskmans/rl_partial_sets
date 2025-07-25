@@ -36,9 +36,7 @@ public class Sets {
                             ItemID.ELITE_VOID_ROBE, ItemID.ELITE_VOID_ROBE_L, ItemID.ELITE_VOID_ROBE_LOR, ItemID.ELITE_VOID_ROBE_OR,
                             ItemID.VOID_KNIGHT_ROBE, ItemID.VOID_KNIGHT_ROBE_L, ItemID.VOID_KNIGHT_ROBE_LOR, ItemID.VOID_KNIGHT_ROBE_OR),
                     new ItemSlot(aConfig,
-                            ItemID.VOID_KNIGHT_GLOVES, ItemID.VOID_KNIGHT_GLOVES_L, ItemID.VOID_KNIGHT_GLOVES_LOR, ItemID.VOID_KNIGHT_GLOVES_OR),
-                    new AssociatedSlot(aConfig,
-                            ItemID.VOID_KNIGHT_MACE, ItemID.VOID_KNIGHT_MACE_L)
+                            ItemID.VOID_KNIGHT_GLOVES, ItemID.VOID_KNIGHT_GLOVES_L, ItemID.VOID_KNIGHT_GLOVES_LOR, ItemID.VOID_KNIGHT_GLOVES_OR)
             ));
         }
         if (aConfig.Obsidian()) {
@@ -307,7 +305,8 @@ public class Sets {
                     new ItemSlot(aConfig, ItemID.ROGUE_TOP),
                     new ItemSlot(aConfig, ItemID.ROGUE_GLOVES),
                     new ItemSlot(aConfig, ItemID.ROGUE_TROUSERS),
-                    new ItemSlot(aConfig, ItemID.ROGUE_BOOTS)
+                    new ItemSlot(aConfig, ItemID.ROGUE_BOOTS),
+                    new AssociatedSlot(aConfig, ItemID.DODGY_NECKLACE)
             ));
         }
         if (aConfig.Hunter()) {
@@ -349,7 +348,8 @@ public class Sets {
                     new ItemSlot(aConfig, ItemID.ANGLER_HAT, ItemID.SPIRIT_ANGLER_HEADBAND),
                     new ItemSlot(aConfig, ItemID.ANGLER_TOP, ItemID.SPIRIT_ANGLER_TOP),
                     new ItemSlot(aConfig, ItemID.ANGLER_WADERS, ItemID.SPIRIT_ANGLER_WADERS),
-                    new ItemSlot(aConfig, ItemID.ANGLER_BOOTS, ItemID.SPIRIT_ANGLER_BOOTS)
+                    new ItemSlot(aConfig, ItemID.ANGLER_BOOTS, ItemID.SPIRIT_ANGLER_BOOTS),
+                    new AssociatedSlot(aConfig, ItemID.RADAS_BLESSING_1, ItemID.RADAS_BLESSING, ItemID.RADAS_BLESSING_2, ItemID.RADAS_BLESSING_3, ItemID.RADAS_BLESSING_4)            
             ));
         }
 
