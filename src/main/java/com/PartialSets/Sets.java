@@ -172,6 +172,7 @@ public class Sets {
                     new ItemSlot(aConfig, "Graceful gloves"),
                     new ItemSlot(aConfig, "Graceful boots"),
                     new ItemSlot(aConfig, "Graceful cape")
+                            .NonWarningAlternatives(ItemID.AGILITY_CAPE, ItemID.AGILITY_CAPET, ItemID.MAX_CAPE, ItemID.MAX_CAPE_13342)
             ));
         }
         if (aConfig.Gauntlet()) {
