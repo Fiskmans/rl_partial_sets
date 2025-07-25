@@ -71,7 +71,7 @@ public class ItemSlot {
     {
         if (myLastEquipped == -1)
         {
-            if (myEmptyName.equals(""))
+            if (myEmptyName.isEmpty())
                 myEmptyName = aItemManager.getItemComposition(myItems[0]).getMembersName();
 
             if (myItems.length > 1)
@@ -96,7 +96,7 @@ public class ItemSlot {
             case Id:
                 {
                     Optional<Integer> equipped = Arrays.stream(myItems)
-                            .filter(item ->  aEquipment.contains(item))
+                            .filter(aEquipment::contains)
                             .findFirst();
 
                     if (equipped.isPresent())
@@ -107,7 +107,7 @@ public class ItemSlot {
                 }
                 {
                     Optional<Integer> equipped = Arrays.stream(myNonWarning)
-                            .filter(item ->  aEquipment.contains(item))
+                            .filter(aEquipment::contains)
                             .findFirst();
 
                     if (equipped.isPresent())
@@ -132,6 +132,20 @@ public class ItemSlot {
                         return EquipStatus.Equipped;
                     }
                 }
+
+                {
+                    Optional<Integer> equipped = Arrays.stream(myNonWarning)
+                            .filter(aEquipment::contains)
+                            .findFirst();
+
+                    if (equipped.isPresent())
+                    {
+                        myLastEquipped = equipped.get();
+                        return EquipStatus.EquippedNoWarning;
+                    }
+                }
+
+                myLastEquipped = -1;
                 return EquipStatus.NotPresent;
         }
 
